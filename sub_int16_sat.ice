@@ -2,7 +2,7 @@
   "version": "1.2",
   "package": {
     "name": "sub_int16_sat",
-    "version": "1.0",
+    "version": "1.1",
     "description": "16 bits signed integer subtract with minint,maxint saturation",
     "author": "Sicco Dwars",
     "image": "%3Csvg%20width=%22800%22%20height=%22600%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ctitle%3ELayer%201%3C/title%3E%3Ctext%20transform=%22matrix(13.559%200%200%2014.5989%20-1767.64%20-2201.72)%22%20stroke=%22#000%22%20font-family=%22sans-serif%22%20font-size=%2224%22%20y=%22173.397%22%20x=%22135.701%22%20stroke-width=%220%22%20fill=%22#46673D%22%20cursor=%22move%22%3ESUB%3C/text%3E%3Ctext%20transform=%22matrix(6.40974%200%200%205.3641%20-2559.75%20-1996.65)%22%20stroke=%22#000%22%20font-family=%22sans-serif%22%20font-size=%2224%22%20y=%22473.662%22%20x=%22408.668%22%20stroke-width=%220%22%3Eint_16_sat%3C/text%3E%3C/svg%3E"
@@ -337,11 +337,28 @@
           }
         },
         {
+          "id": "2bad04f4-92c9-41bf-a1ca-3923007ad223",
+          "type": "basic.constant",
+          "data": {
+            "name": "WIDTH",
+            "value": "16",
+            "local": true
+          },
+          "position": {
+            "x": 416,
+            "y": -176
+          }
+        },
+        {
           "id": "1305a83f-5378-4d61-a0ab-8ad1e8b196d4",
           "type": "basic.code",
           "data": {
-            "code": "wire signed [16:0] Sum17bits;\n\nassign Sum17bits = $signed(a) - $signed(b);\nassign clipMinInt = (Sum17bits < -32768);\nassign clipMaxInt = (Sum17bits > 32767);\n\nassign Sum = clipMinInt ? -32768 : clipMaxInt ? 32767 : Sum17bits[15:0];\n",
-            "params": [],
+            "code": "// y = a - b;  signed N bits integers, coerce sum y in [-32768..32767 range]\n\nlocalparam N_M1 = N - 1;\n\nwire signed [N:0] Sum_N_P1_bits;\nwire y_less_than_MININT;\nwire y_more_than_MAXINT;\n\nwire signed [N_M1:0] MININT = {1'b1,{N_M1{1'b0}}};\nwire signed [N_M1:0] MAXINT = {1'b0,{N_M1{1'b1}}};\n\nassign Sum_N_P1_bits = $signed(a) - $signed(b);\nassign y_less_than_MININT = Sum_N_P1_bits[N:N_M1] == 2'b10;\nassign y_more_than_MAXINT = Sum_N_P1_bits[N:N_M1] == 2'b01;\n\nassign y = y_less_than_MININT ? MININT : y_more_than_MAXINT ? MAXINT : Sum_N_P1_bits[N_M1:0];\n",
+            "params": [
+              {
+                "name": "N"
+              }
+            ],
             "ports": {
               "in": [
                 {
@@ -357,7 +374,7 @@
               ],
               "out": [
                 {
-                  "name": "Sum",
+                  "name": "y",
                   "range": "[15:0]",
                   "size": 16
                 },
@@ -406,17 +423,6 @@
         {
           "source": {
             "block": "1305a83f-5378-4d61-a0ab-8ad1e8b196d4",
-            "port": "Sum"
-          },
-          "target": {
-            "block": "a947797a-75f6-419b-8ebc-98ee46ff3307",
-            "port": "in"
-          },
-          "size": 16
-        },
-        {
-          "source": {
-            "block": "1305a83f-5378-4d61-a0ab-8ad1e8b196d4",
             "port": "clipMaxInt"
           },
           "target": {
@@ -432,6 +438,27 @@
           "target": {
             "block": "5aad4260-c2e8-44ca-a726-52122bc47a1e",
             "port": "in"
+          }
+        },
+        {
+          "source": {
+            "block": "1305a83f-5378-4d61-a0ab-8ad1e8b196d4",
+            "port": "y"
+          },
+          "target": {
+            "block": "a947797a-75f6-419b-8ebc-98ee46ff3307",
+            "port": "in"
+          },
+          "size": 16
+        },
+        {
+          "source": {
+            "block": "2bad04f4-92c9-41bf-a1ca-3923007ad223",
+            "port": "constant-out"
+          },
+          "target": {
+            "block": "1305a83f-5378-4d61-a0ab-8ad1e8b196d4",
+            "port": "N"
           }
         }
       ]

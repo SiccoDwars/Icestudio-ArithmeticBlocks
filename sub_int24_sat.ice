@@ -2,7 +2,7 @@
   "version": "1.2",
   "package": {
     "name": "sub_int24_sat",
-    "version": "1.0",
+    "version": "1.1",
     "description": "24 bits signed integer subtract with minint,maxint saturation",
     "author": "Sicco Dwars",
     "image": "%3Csvg%20width=%22800%22%20height=%22600%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ctitle%3ELayer%201%3C/title%3E%3Ctext%20fill=%22#46673D%22%20stroke-width=%220%22%20x=%22135.701%22%20y=%22173.397%22%20font-size=%2224%22%20font-family=%22sans-serif%22%20stroke=%22#000%22%20transform=%22matrix(13.559%200%200%2014.5989%20-1767.64%20-2201.72)%22%3ESUB%3C/text%3E%3Ctext%20stroke-width=%220%22%20x=%22408.668%22%20y=%22473.662%22%20font-size=%2224%22%20font-family=%22sans-serif%22%20stroke=%22#000%22%20transform=%22matrix(6.40974%200%200%205.3641%20-2559.75%20-1996.65)%22%20cursor=%22move%22%3Eint_24_sat%3C/text%3E%3C/svg%3E"
@@ -12,10 +12,10 @@
     "graph": {
       "blocks": [
         {
-          "id": "f11610bb-b6ad-480b-8f56-9d3cf1a3917c",
+          "id": "6a5eeda9-59d9-4893-82c8-787843040842",
           "type": "basic.output",
           "data": {
-            "name": "y",
+            "name": "sum",
             "range": "[23:0]",
             "pins": [
               {
@@ -147,7 +147,7 @@
           }
         },
         {
-          "id": "50b9aaa1-0d9b-4edc-9041-0ecfb968fc08",
+          "id": "4246bcc9-1ac9-4f21-b07b-be15584cf128",
           "type": "basic.input",
           "data": {
             "name": "a",
@@ -302,7 +302,7 @@
           }
         },
         {
-          "id": "13683581-4bbc-4858-8a43-ac95ab11ef73",
+          "id": "988310ab-8d39-486c-84eb-b6dee9591e3e",
           "type": "basic.input",
           "data": {
             "name": "b",
@@ -457,11 +457,28 @@
           }
         },
         {
+          "id": "2bad04f4-92c9-41bf-a1ca-3923007ad223",
+          "type": "basic.constant",
+          "data": {
+            "name": "WIDTH",
+            "value": "24",
+            "local": true
+          },
+          "position": {
+            "x": 416,
+            "y": -176
+          }
+        },
+        {
           "id": "1305a83f-5378-4d61-a0ab-8ad1e8b196d4",
           "type": "basic.code",
           "data": {
-            "code": "// y = a - b, 24 bits integer, saturates in [MININT..MAXINT]\n\nwire signed [24:0] Sum25bits;\n\nassign Sum25bits = $signed(a) - $signed(b);\nassign clipMinInt = (Sum25bits < -8388608);\nassign clipMaxInt = (Sum25bits > 8388607);\n\nassign y = clipMinInt ? -8388608 : clipMaxInt ? 8388607 : Sum25bits[23:0];\n",
-            "params": [],
+            "code": "// y = a - b;  signed N bits integers, coerce sum y in [-32768..32767 range]\n\nlocalparam N_M1 = N - 1;\n\nwire signed [N:0] Sum_N_P1_bits;\nwire y_less_than_MININT;\nwire y_more_than_MAXINT;\n\nwire signed [N_M1:0] MININT = {1'b1,{N_M1{1'b0}}};\nwire signed [N_M1:0] MAXINT = {1'b0,{N_M1{1'b1}}};\n\nassign Sum_N_P1_bits = $signed(a) - $signed(b);\nassign y_less_than_MININT = Sum_N_P1_bits[N:N_M1] == 2'b10;\nassign y_more_than_MAXINT = Sum_N_P1_bits[N:N_M1] == 2'b01;\n\nassign y = y_less_than_MININT ? MININT : y_more_than_MAXINT ? MAXINT : Sum_N_P1_bits[N_M1:0];\n",
+            "params": [
+              {
+                "name": "N"
+              }
+            ],
             "ports": {
               "in": [
                 {
@@ -523,7 +540,17 @@
         },
         {
           "source": {
-            "block": "50b9aaa1-0d9b-4edc-9041-0ecfb968fc08",
+            "block": "2bad04f4-92c9-41bf-a1ca-3923007ad223",
+            "port": "constant-out"
+          },
+          "target": {
+            "block": "1305a83f-5378-4d61-a0ab-8ad1e8b196d4",
+            "port": "N"
+          }
+        },
+        {
+          "source": {
+            "block": "4246bcc9-1ac9-4f21-b07b-be15584cf128",
             "port": "out"
           },
           "target": {
@@ -534,12 +561,23 @@
         },
         {
           "source": {
-            "block": "13683581-4bbc-4858-8a43-ac95ab11ef73",
+            "block": "988310ab-8d39-486c-84eb-b6dee9591e3e",
             "port": "out"
           },
           "target": {
             "block": "1305a83f-5378-4d61-a0ab-8ad1e8b196d4",
             "port": "b"
+          },
+          "size": 24
+        },
+        {
+          "source": {
+            "block": "1305a83f-5378-4d61-a0ab-8ad1e8b196d4",
+            "port": "y"
+          },
+          "target": {
+            "block": "6a5eeda9-59d9-4893-82c8-787843040842",
+            "port": "in"
           },
           "size": 24
         }

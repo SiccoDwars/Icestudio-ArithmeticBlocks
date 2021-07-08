@@ -1,23 +1,63 @@
 {
   "version": "1.2",
   "package": {
-    "name": "add_int24_sat",
+    "name": "add_int32_sat",
     "version": "1.1",
-    "description": "24 bits signed integer add with minint,maxint saturation",
+    "description": "32 bits signed integer add with minint,maxint saturation",
     "author": "Sicco Dwars",
-    "image": "%3Csvg%20width=%22800%22%20height=%22600%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ctitle%3ELayer%201%3C/title%3E%3Ctext%20fill=%22#46673D%22%20stroke-width=%220%22%20x=%22135.701%22%20y=%22173.466%22%20font-size=%2224%22%20font-family=%22sans-serif%22%20stroke=%22#000%22%20transform=%22matrix(13.559%200%200%2014.5989%20-1767.64%20-2201.72)%22%3EADD%3C/text%3E%3Ctext%20stroke-width=%220%22%20x=%22408.668%22%20y=%22473.662%22%20font-size=%2224%22%20font-family=%22sans-serif%22%20stroke=%22#000%22%20transform=%22matrix(6.40974%200%200%205.3641%20-2559.75%20-1996.65)%22%20cursor=%22text%22%3Eint_24_sat%3C/text%3E%3C/svg%3E"
+    "image": "%3Csvg%20width=%22800%22%20height=%22600%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ctitle%3ELayer%201%3C/title%3E%3Ctext%20transform=%22matrix(13.559%200%200%2014.5989%20-1767.64%20-2201.72)%22%20stroke=%22#000%22%20font-family=%22sans-serif%22%20font-size=%2224%22%20y=%22173.466%22%20x=%22135.701%22%20stroke-width=%220%22%20fill=%22#46673D%22%3EADD%3C/text%3E%3Ctext%20transform=%22matrix(6.40974%200%200%205.3641%20-2559.75%20-1996.65)%22%20stroke=%22#000%22%20font-family=%22sans-serif%22%20font-size=%2224%22%20y=%22473.662%22%20x=%22408.668%22%20stroke-width=%220%22%20cursor=%22move%22%3Eint_32_sat%3C/text%3E%3C/svg%3E"
   },
   "design": {
     "board": "iCEBreaker",
     "graph": {
       "blocks": [
         {
-          "id": "ce944b2e-bc44-4a38-8378-f4636bc305d6",
+          "id": "534e7140-84bd-4b53-aa6e-964293e70740",
           "type": "basic.output",
           "data": {
             "name": "sum",
-            "range": "[23:0]",
+            "range": "[31:0]",
             "pins": [
+              {
+                "index": "31",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "30",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "29",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "28",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "27",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "26",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "25",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "24",
+                "name": "",
+                "value": ""
+              },
               {
                 "index": "23",
                 "name": "",
@@ -147,12 +187,52 @@
           }
         },
         {
-          "id": "dd2e495c-8636-41cc-9ff2-3dbaeb2e0ad5",
+          "id": "3afdcfb5-2d63-45fc-9b84-956425ce90ad",
           "type": "basic.input",
           "data": {
             "name": "a",
-            "range": "[23:0]",
+            "range": "[31:0]",
             "pins": [
+              {
+                "index": "31",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "30",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "29",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "28",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "27",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "26",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "25",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "24",
+                "name": "",
+                "value": ""
+              },
               {
                 "index": "23",
                 "name": "",
@@ -302,12 +382,52 @@
           }
         },
         {
-          "id": "58bf4217-9c67-47dc-b7b9-f86573e8a42a",
+          "id": "995f7239-86bd-4456-bd6a-4bf6bc6b9a0a",
           "type": "basic.input",
           "data": {
             "name": "b",
-            "range": "[23:0]",
+            "range": "[31:0]",
             "pins": [
+              {
+                "index": "31",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "30",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "29",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "28",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "27",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "26",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "25",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "24",
+                "name": "",
+                "value": ""
+              },
               {
                 "index": "23",
                 "name": "",
@@ -461,7 +581,7 @@
           "type": "basic.constant",
           "data": {
             "name": "WIDTH",
-            "value": "24",
+            "value": "32",
             "local": true
           },
           "position": {
@@ -483,20 +603,20 @@
               "in": [
                 {
                   "name": "a",
-                  "range": "[23:0]",
-                  "size": 24
+                  "range": "[31:0]",
+                  "size": 32
                 },
                 {
                   "name": "b",
-                  "range": "[23:0]",
-                  "size": 24
+                  "range": "[31:0]",
+                  "size": 32
                 }
               ],
               "out": [
                 {
                   "name": "y",
-                  "range": "[23:0]",
-                  "size": 24
+                  "range": "[31:0]",
+                  "size": 32
                 },
                 {
                   "name": "clipMaxInt"
@@ -550,25 +670,25 @@
         },
         {
           "source": {
-            "block": "dd2e495c-8636-41cc-9ff2-3dbaeb2e0ad5",
+            "block": "3afdcfb5-2d63-45fc-9b84-956425ce90ad",
             "port": "out"
           },
           "target": {
             "block": "1305a83f-5378-4d61-a0ab-8ad1e8b196d4",
             "port": "a"
           },
-          "size": 24
+          "size": 32
         },
         {
           "source": {
-            "block": "58bf4217-9c67-47dc-b7b9-f86573e8a42a",
+            "block": "995f7239-86bd-4456-bd6a-4bf6bc6b9a0a",
             "port": "out"
           },
           "target": {
             "block": "1305a83f-5378-4d61-a0ab-8ad1e8b196d4",
             "port": "b"
           },
-          "size": 24
+          "size": 32
         },
         {
           "source": {
@@ -576,10 +696,10 @@
             "port": "y"
           },
           "target": {
-            "block": "ce944b2e-bc44-4a38-8378-f4636bc305d6",
+            "block": "534e7140-84bd-4b53-aa6e-964293e70740",
             "port": "in"
           },
-          "size": 24
+          "size": 32
         }
       ]
     }

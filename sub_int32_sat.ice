@@ -1,23 +1,63 @@
 {
   "version": "1.2",
   "package": {
-    "name": "add_int24_sat",
+    "name": "sub_int32_sat",
     "version": "1.1",
-    "description": "24 bits signed integer add with minint,maxint saturation",
+    "description": "32 bits signed integer subtract with minint,maxint saturation",
     "author": "Sicco Dwars",
-    "image": "%3Csvg%20width=%22800%22%20height=%22600%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ctitle%3ELayer%201%3C/title%3E%3Ctext%20fill=%22#46673D%22%20stroke-width=%220%22%20x=%22135.701%22%20y=%22173.466%22%20font-size=%2224%22%20font-family=%22sans-serif%22%20stroke=%22#000%22%20transform=%22matrix(13.559%200%200%2014.5989%20-1767.64%20-2201.72)%22%3EADD%3C/text%3E%3Ctext%20stroke-width=%220%22%20x=%22408.668%22%20y=%22473.662%22%20font-size=%2224%22%20font-family=%22sans-serif%22%20stroke=%22#000%22%20transform=%22matrix(6.40974%200%200%205.3641%20-2559.75%20-1996.65)%22%20cursor=%22text%22%3Eint_24_sat%3C/text%3E%3C/svg%3E"
+    "image": "%3Csvg%20width=%22800%22%20height=%22600%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ctitle%3ELayer%201%3C/title%3E%3Ctext%20transform=%22matrix(13.559%200%200%2014.5989%20-1767.64%20-2201.72)%22%20stroke=%22#000%22%20font-family=%22sans-serif%22%20font-size=%2224%22%20y=%22173.466%22%20x=%22135.701%22%20stroke-width=%220%22%20fill=%22#46673D%22%20cursor=%22move%22%3ESUB%3C/text%3E%3Ctext%20transform=%22matrix(6.40974%200%200%205.3641%20-2559.75%20-1996.65)%22%20stroke=%22#000%22%20font-family=%22sans-serif%22%20font-size=%2224%22%20y=%22473.662%22%20x=%22408.668%22%20stroke-width=%220%22%20cursor=%22move%22%3Eint_32_sat%3C/text%3E%3C/svg%3E"
   },
   "design": {
     "board": "iCEBreaker",
     "graph": {
       "blocks": [
         {
-          "id": "ce944b2e-bc44-4a38-8378-f4636bc305d6",
+          "id": "ff2a8468-b6dd-48ca-8de6-d1a8e9f1f4d7",
           "type": "basic.output",
           "data": {
             "name": "sum",
-            "range": "[23:0]",
+            "range": "[31:0]",
             "pins": [
+              {
+                "index": "31",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "30",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "29",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "28",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "27",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "26",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "25",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "24",
+                "name": "",
+                "value": ""
+              },
               {
                 "index": "23",
                 "name": "",
@@ -147,12 +187,52 @@
           }
         },
         {
-          "id": "dd2e495c-8636-41cc-9ff2-3dbaeb2e0ad5",
+          "id": "f7c71e4e-7803-42ff-b936-9b7f4fbd2e9e",
           "type": "basic.input",
           "data": {
             "name": "a",
-            "range": "[23:0]",
+            "range": "[31:0]",
             "pins": [
+              {
+                "index": "31",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "30",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "29",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "28",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "27",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "26",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "25",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "24",
+                "name": "",
+                "value": ""
+              },
               {
                 "index": "23",
                 "name": "",
@@ -302,12 +382,52 @@
           }
         },
         {
-          "id": "58bf4217-9c67-47dc-b7b9-f86573e8a42a",
+          "id": "80afe72f-0d13-4498-beb2-1f70f96fcb64",
           "type": "basic.input",
           "data": {
             "name": "b",
-            "range": "[23:0]",
+            "range": "[31:0]",
             "pins": [
+              {
+                "index": "31",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "30",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "29",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "28",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "27",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "26",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "25",
+                "name": "",
+                "value": ""
+              },
+              {
+                "index": "24",
+                "name": "",
+                "value": ""
+              },
               {
                 "index": "23",
                 "name": "",
@@ -457,11 +577,11 @@
           }
         },
         {
-          "id": "ada6446d-32d2-4294-906b-2232e5cfab74",
+          "id": "2bad04f4-92c9-41bf-a1ca-3923007ad223",
           "type": "basic.constant",
           "data": {
             "name": "WIDTH",
-            "value": "24",
+            "value": "32",
             "local": true
           },
           "position": {
@@ -473,7 +593,7 @@
           "id": "1305a83f-5378-4d61-a0ab-8ad1e8b196d4",
           "type": "basic.code",
           "data": {
-            "code": "// y = a + b;  signed N bits integers, coerce sum y in [-32768..32767 range]\n\nlocalparam N_M1 = N - 1;\n  \nwire signed [N:0] Sum_N_P1_bits;\nwire y_less_than_MININT;\nwire y_more_than_MAXINT;\n\nwire signed [N_M1:0] MININT = {1'b1,{N_M1{1'b0}}};\nwire signed [N_M1:0] MAXINT = {1'b0,{N_M1{1'b1}}};\n\nassign Sum_N_P1_bits = $signed(a) + $signed(b);\nassign y_less_than_MININT = Sum_N_P1_bits[N:N_M1] == 2'b10;\nassign y_more_than_MAXINT = Sum_N_P1_bits[N:N_M1] == 2'b01;\n\nassign y = y_less_than_MININT ? MININT : y_more_than_MAXINT ? MAXINT : Sum_N_P1_bits[N_M1:0];\n",
+            "code": "// y = a - b;  signed N bits integers, coerce sum y in [-32768..32767 range]\n\nlocalparam N_M1 = N - 1;\n\nwire signed [N:0] Sum_N_P1_bits;\nwire y_less_than_MININT;\nwire y_more_than_MAXINT;\n\nwire signed [N_M1:0] MININT = {1'b1,{N_M1{1'b0}}};\nwire signed [N_M1:0] MAXINT = {1'b0,{N_M1{1'b1}}};\n\nassign Sum_N_P1_bits = $signed(a) - $signed(b);\nassign y_less_than_MININT = Sum_N_P1_bits[N:N_M1] == 2'b10;\nassign y_more_than_MAXINT = Sum_N_P1_bits[N:N_M1] == 2'b01;\n\nassign y = y_less_than_MININT ? MININT : y_more_than_MAXINT ? MAXINT : Sum_N_P1_bits[N_M1:0];\n",
             "params": [
               {
                 "name": "N"
@@ -483,20 +603,20 @@
               "in": [
                 {
                   "name": "a",
-                  "range": "[23:0]",
-                  "size": 24
+                  "range": "[31:0]",
+                  "size": 32
                 },
                 {
                   "name": "b",
-                  "range": "[23:0]",
-                  "size": 24
+                  "range": "[31:0]",
+                  "size": 32
                 }
               ],
               "out": [
                 {
                   "name": "y",
-                  "range": "[23:0]",
-                  "size": 24
+                  "range": "[31:0]",
+                  "size": 32
                 },
                 {
                   "name": "clipMaxInt"
@@ -540,7 +660,7 @@
         },
         {
           "source": {
-            "block": "ada6446d-32d2-4294-906b-2232e5cfab74",
+            "block": "2bad04f4-92c9-41bf-a1ca-3923007ad223",
             "port": "constant-out"
           },
           "target": {
@@ -550,25 +670,25 @@
         },
         {
           "source": {
-            "block": "dd2e495c-8636-41cc-9ff2-3dbaeb2e0ad5",
+            "block": "f7c71e4e-7803-42ff-b936-9b7f4fbd2e9e",
             "port": "out"
           },
           "target": {
             "block": "1305a83f-5378-4d61-a0ab-8ad1e8b196d4",
             "port": "a"
           },
-          "size": 24
+          "size": 32
         },
         {
           "source": {
-            "block": "58bf4217-9c67-47dc-b7b9-f86573e8a42a",
+            "block": "80afe72f-0d13-4498-beb2-1f70f96fcb64",
             "port": "out"
           },
           "target": {
             "block": "1305a83f-5378-4d61-a0ab-8ad1e8b196d4",
             "port": "b"
           },
-          "size": 24
+          "size": 32
         },
         {
           "source": {
@@ -576,10 +696,10 @@
             "port": "y"
           },
           "target": {
-            "block": "ce944b2e-bc44-4a38-8378-f4636bc305d6",
+            "block": "ff2a8468-b6dd-48ca-8de6-d1a8e9f1f4d7",
             "port": "in"
           },
-          "size": 24
+          "size": 32
         }
       ]
     }
