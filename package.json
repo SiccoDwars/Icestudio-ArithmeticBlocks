@@ -1,0 +1,17 @@
+{
+  "name": "arithmetic",
+  "version": "0.1.0",
+  "description": "Signed arithmetic collections",
+  "keywords": ["integer", "signed", "arithmetic"],
+  "license": "LGPL-3.0",
+  "authors": [{
+    "name": "SiccoDwars",
+    "email": "",
+    "url": "https://github.com/SiccoDwars"
+  }],
+  "repository": {
+    "type": "git",
+    "branch": "main",
+    "url": "https://github.com/FPGAwars/Icestudio-ArithmeticBlocks"
+  }
+}
