@@ -17,7 +17,7 @@ Licensed under [LGPL-3.0](https://opensource.org/licenses/LGPL-3.0).
 
 For installing and using this colection in Icestudio follow these steps:
 
-* Download the collection: [stable](https://github.com/FPGAwars/Icestudio-ArithmeticBlocks/archive/refs/tags/v0.1.0.zip) or [development](https://github.com/FPGAwars/Icestudio-ArithmeticBlocks/archive/refs/heads/main.zip)
+* Download the collection: [stable](https://github.com/SiccoDwars/Icestudio-ArithmeticBlocks/archive/refs/tags/v0.1.0.zip) or [development](https://github.com/SiccoDwars/Icestudio-ArithmeticBlocks/archive/refs/heads/main.zip)
 * Install the collection: *Tools > Collections > Add*
 * Select the collection: *Select > Collection*
 
